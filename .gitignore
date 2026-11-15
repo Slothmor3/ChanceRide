@@ -1,0 +1,34 @@
+# Gradle / Kotlin / Android build output
+.gradle/
+.kotlin/
+**/build/
+.externalNativeBuild/
+.cxx/
+*.iml
+*.hprof
+*.apk
+*.aab
+*.apks
+
+# Machine-specific settings and IDE state
+local.properties
+.idea/
+.fleet/
+.vscode/
+.DS_Store
+Thumbs.db
+/captures/
+
+# Signing material and local credentials
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+
+# Local run logs
+*.log

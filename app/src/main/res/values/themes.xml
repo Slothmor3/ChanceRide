@@ -1,0 +1,10 @@
+<resources>
+    <style name="Theme.ChanceRide" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="colorAccent">#6041FF</item>
+        <item name="android:windowBackground">#F6F7F9</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowSplashScreenBackground">#F6F7F9</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_brand</item>
+    </style>
+</resources>
