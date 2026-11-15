@@ -2,7 +2,7 @@
 
 이 폴더에는 설치 가능한 **서명된 Release APK**를 보관합니다.
 
-파일: [ChanceRide-release.apk](ChanceRide-release.apk)
+파일: [친해지길바래_어쩌다동승_release.apk](친해지길바래_어쩌다동승_release.apk)
 
 - 패키지: `com.example.chanceride`
 - 버전: 1.0 / versionCode 1
@@ -26,7 +26,7 @@
 ## 설치
 
 ```bash
-adb install -r apk/ChanceRide-release.apk
+adb install -r apk/친해지길바래_어쩌다동승_release.apk
 ```
 
 기존 Debug 앱과 서명 키가 다르면 덮어쓸 수 없습니다.

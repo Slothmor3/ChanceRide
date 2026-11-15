@@ -103,7 +103,7 @@ Debug APK 출력: `app/build/outputs/apk/debug/app-debug.apk`
 
 ### 제출용 Release APK
 
-**다운로드: [apk/ChanceRide-release.apk](apk/ChanceRide-release.apk)**
+**다운로드: [apk/친해지길바래_어쩌다동승_release.apk](apk/친해지길바래_어쩌다동승_release.apk)**
 
 제출 APK는 Release 빌드이며 로컬 Release 키로 서명했습니다.
 `debuggable=false`이고 API 34 이상의 Pleos Connect 환경을 대상으로 합니다.

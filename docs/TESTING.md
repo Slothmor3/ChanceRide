@@ -17,7 +17,7 @@ Windows에서는 `gradlew.bat`를 사용합니다.
 | 검사 | 결과 |
 | --- | --- |
 | Debug 앱 빌드 | 통과 |
-| 서명된 Release APK 빌드·제출용 패키징 | 통과 — apk/ChanceRide-release.apk |
+| 서명된 Release APK 빌드·제출용 패키징 | 통과 — apk/친해지길바래_어쩌다동승_release.apk |
 | Release APK 서명 검증 | apksigner 검증 통과, APK Signature Scheme v2 |
 | Release Lint | 통과 |
 | 기기 테스트 APK 빌드 | 통과 |

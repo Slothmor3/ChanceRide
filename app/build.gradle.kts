@@ -86,10 +86,10 @@ tasks.register<Copy>("packageSubmissionApk") {
     from(layout.buildDirectory.file("outputs/apk/release/app-release.apk"))
     val submissionDirectory = rootProject.layout.projectDirectory.dir("apk")
     into(submissionDirectory)
-    rename("app-release.apk", "ChanceRide-release.apk")
+    rename("app-release.apk", "친해지길바래_어쩌다동승_release.apk")
 
     doLast {
-        val apk = submissionDirectory.file("ChanceRide-release.apk").asFile
+        val apk = submissionDirectory.file("친해지길바래_어쩌다동승_release.apk").asFile
         val digest = MessageDigest.getInstance("SHA-256")
         apk.inputStream().use { input ->
             val buffer = ByteArray(8192)
@@ -101,6 +101,6 @@ tasks.register<Copy>("packageSubmissionApk") {
         }
         val checksum = digest.digest().joinToString("") { "%02x".format(it.toInt() and 0xff) }
         submissionDirectory.file("SHA256SUMS").asFile
-            .writeText("$checksum  ChanceRide-release.apk\n")
+            .writeText("$checksum  친해지길바래_어쩌다동승_release.apk\n")
     }
 }
