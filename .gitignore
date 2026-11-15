@@ -7,6 +7,7 @@
 *.iml
 *.hprof
 *.apk
+!/apk/*.apk
 *.aab
 *.apks
 
@@ -20,6 +21,7 @@ Thumbs.db
 /captures/
 
 # Signing material and local credentials
+/keystore/
 *.jks
 *.keystore
 keystore.properties

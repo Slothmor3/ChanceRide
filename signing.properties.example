@@ -1,0 +1,6 @@
+# Copy to signing.properties and supply your own local release key.
+# signing.properties and the keystore/ directory are excluded from Git.
+storeFile=keystore/chanceride-release.keystore
+storePassword=REPLACE_WITH_YOUR_PASSWORD
+keyAlias=chanceride-release
+keyPassword=REPLACE_WITH_YOUR_PASSWORD

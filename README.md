@@ -55,6 +55,29 @@ flowchart LR
 | Gradle JVM | JDK 25 — 저장소의 Daemon JVM 설정 기준 |
 | Pleos 음성 SDK | TTS 3.3.1 · STT 3.3.1 |
 
+### 개발·테스트 에뮬레이터와 화면 규격
+
+| 항목 | 개발에 사용한 설정 |
+| --- | --- |
+| 에뮬레이터 | Pleos Connect v2.1.0 |
+| AVD 이름 | `Pleos_Connect_v2.1.0` |
+| 시스템 이미지 | Android 14 / API 34 · `pleos_car_emulator` · ARM64 (`arm64-v8a`) |
+| 주 디스플레이 해상도 | **2560 × 1440px** (가로) |
+| 주 디스플레이 밀도 | **160dpi** |
+| 앱 화면 방향 | portrait |
+| 앱 레이아웃 기준 | **840 × 1180** — 시안의 앱 영역을 나타내는 기준 좌표 |
+
+위 해상도와 밀도는 개발에 사용한 AVD의 설정값입니다.
+앱에 할당되는 실제 창 크기는 차량 런처와 시스템 UI에 따라 달라지며,
+앱은 시스템 바·컷아웃을 제외한 영역에 세로 레이아웃을 동일 배율로 맞춥니다.
+`840 × 1180`은 에뮬레이터의 물리 해상도가 아닙니다.
+
+음성 테스트에는 에뮬레이터의 마이크 입력과 Pleos 한국어 음성 엔진이 필요합니다.
+앱의 마이크 권한을 허용하고, 테마·참여자 선택은 정차 및 UX 규제 해제 상태에서 진행합니다.
+실제 발화 확인 절차와 자동 테스트 결과는 [검증 문서](docs/TESTING.md)를 참고하세요.
+
+### 빌드 및 실행 순서
+
 1. 저장소를 내려받고 Android Studio에서 루트 폴더를 엽니다.
 2. 위 AGP 버전을 지원하는 Android Studio와 Android SDK Platform 37을 준비합니다.
 3. Gradle Sync를 실행합니다. AndroidX와 Pleos Maven 저장소에 접근할 수 있어야 합니다.
@@ -76,7 +99,26 @@ https://nexus-playground.pleos.ai/repository/maven-releases/
 ./gradlew :app:assembleDebug
 ```
 
-APK 출력: `app/build/outputs/apk/debug/app-debug.apk`
+Debug APK 출력: `app/build/outputs/apk/debug/app-debug.apk`
+
+### 제출용 Release APK
+
+**다운로드: [apk/ChanceRide-release.apk](apk/ChanceRide-release.apk)**
+
+제출 APK는 Release 빌드이며 로컬 Release 키로 서명했습니다.
+`debuggable=false`이고 API 34 이상의 Pleos Connect 환경을 대상으로 합니다.
+키 파일과 비밀번호는 Git에 포함하지 않으며, 제출용 `apk/*.apk`만 추적하도록 설정했습니다.
+
+같은 서명으로 다시 만들 때는 로컬 `signing.properties`와 키를 유지한 상태에서 실행합니다.
+
+```bash
+./gradlew :app:packageSubmissionApk
+```
+
+서명 설정 형식은 [signing.properties.example](signing.properties.example),
+설치 방법은 [APK 안내](apk/README.md)를 참고하세요.
+다른 개발 환경에서는 본인의 서명 키와 실제 비밀번호를 준비해야 합니다.
+새 키로 빌드한 APK는 기존 Debug 앱에 덮어쓸 수 없으므로 별도 에뮬레이터 사용을 권장합니다.
 
 일반 휴대폰 에뮬레이터에서는 차량 서비스와 Pleos 음성 엔진을 사용할 수 없습니다.
 Pleos 엔진 준비 여부와 마이크 입력은 지원 환경에서 확인해야 합니다.
